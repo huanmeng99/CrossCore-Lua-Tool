@@ -1,0 +1,45 @@
+# This workflow will build a .NET project
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-net
+
+name: .NET
+
+on:
+  push:
+    branches: [ "master" ]
+    paths-ignore:
+      - '**/LICENSE'
+      - '**/README.md'
+      - '**/.github'
+      - '**/.gitignore'
+      - '**/.gitattributes'
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  build:
+
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: 8.0.x
+    - name: Download Resources
+      run: "curl -o Proto.zip -A 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36' --header 'Accept-Encoding: gzip,deflate' https://github.com/AXiX-official/CrossCore-Lua-Tool.zip"
+    - name: Unzip Resources
+      run: unzip -n Proto.zip -d Common
+    - name: Restore dependencies
+      run: dotnet restore
+    - name: Build
+      run: dotnet publish ./CrossCore-Lua-Tool.csproj -c Release -o CrossCore-Lua-Tool_build
+    - name: Test
+      run: dotnet test --no-build --verbosity normal
+    - name: Upload build artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: net8.0
+        path: ./CrossCore-Lua-Tool_build
+    - name: Clean up
+      run: rm Proto.zip && rm -r -force ./CrossCore-Lua-Tool_build
