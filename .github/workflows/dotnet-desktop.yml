@@ -41,5 +41,3 @@ jobs:
       with:
         name: net8.0
         path: ./CrossCore-Lua-Tool_build
-    - name: Clean up
-      run: rm Proto.zip && rm -r -force ./CrossCore-Lua-Tool_build
