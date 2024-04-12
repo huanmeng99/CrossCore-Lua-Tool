@@ -8,7 +8,7 @@ public class LuaScripts
         byte[] rawBytes = File.ReadAllBytes(rawfile);
         if (fix)
         {
-            string luaFileURL = "https://cdn.megagamelog.com/cross/release/android/curr/Custom/luascripts";
+            string luaFileURL = "https://cdn.megagamelog.com/cross/release/ios/curr/Custom/luascripts";
             var wwwMgr = new WWWMgr();
             var tcs = new TaskCompletionSource<bool>();
             wwwMgr.GetFileSizeAsync(luaFileURL).ContinueWith(task =>
