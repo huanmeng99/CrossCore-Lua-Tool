@@ -25,10 +25,14 @@ jobs:
       - name: Build Project
         run: dotnet build --configuration Release
 
+      - name: Publish Project
+        run: dotnet publish --configuration Release --output ./publish
+
       - name: Publish Artifact
         uses: actions/upload-artifact@v2
         with:
           name: project-artifact
           path: |
             ./CrossCore-Lua-Tool_build
-            ./Assembly-CSharp_build  # Assuming the output directory for Assembly-CSharp project
+            ./Assembly-CSharp_build
+            ./publish  # Include the published files
