@@ -1,4 +1,4 @@
-﻿using System.Runtime.Serialization.Formatters.Binary;
+using System.Runtime.Serialization.Formatters.Binary;
 
 public class LuaScripts
 {
@@ -8,7 +8,7 @@ public class LuaScripts
         byte[] rawBytes = File.ReadAllBytes(rawfile);
         if (fix)
         {
-            string luaFileURL = "https://cdn.megagamelog.com/cross/release/ios/curr/Custom/luascripts";
+            string luaFileURL = "https://cdn.megagamelog.com/cross/release/android/curr/Custom/luascripts";
             var wwwMgr = new WWWMgr();
             var tcs = new TaskCompletionSource<bool>();
             wwwMgr.GetFileSizeAsync(luaFileURL).ContinueWith(task =>
