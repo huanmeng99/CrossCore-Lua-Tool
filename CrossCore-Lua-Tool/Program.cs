@@ -43,14 +43,30 @@ namespace CrossCore
                     }
                     else if (o.VerBytes)
                     {
-                        VerMgr verMgr = new VerMgr();
-                        verMgr.LoadVerInfo(o.InFile, o.OutFile);
+                        // Check if VerMgr should be used
+                        if (ShouldUseVerMgr())
+                        {
+                            VerMgr verMgr = new VerMgr();
+                            verMgr.LoadVerInfo(o.InFile, o.OutFile);
+                        }
+                        else
+                        {
+                            Console.WriteLine("VerMgr not used.");
+                        }
                     }
                     else if (o.Help)
                     {
                         Console.WriteLine("Help");
                     }
                 });
+        }
+        
+        // Method to determine if VerMgr should be used
+        private static bool ShouldUseVerMgr()
+        {
+            // Your logic to determine if VerMgr should be used goes here
+            // For example, you could check if VerBytes option is true
+            return true; // Example: always use VerMgr for demonstration purposes
         }
     }
 }
