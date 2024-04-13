@@ -30,8 +30,7 @@ jobs:
       - name: Upload build artifacts
         uses: actions/upload-artifact@v3
         with:
-          name: project-artifact
+          name: net8.0
           path: |
             ./CrossCore-Lua-Tool_build
             ./Assembly-CSharp_build
-            ./publish  # Include the published files
