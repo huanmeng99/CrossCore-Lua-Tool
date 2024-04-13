@@ -66,10 +66,3 @@ jobs:
             ./CrossCore-Lua-Tool_build
             ./Assembly-CSharp_build
             ./publish  # Include the published files
-
-        with:
-          name: project-artifact
-          path: |
-            ./CrossCore-Lua-Tool_build
-            ./Assembly-CSharp_build
-            ./publish  # Include the published files
