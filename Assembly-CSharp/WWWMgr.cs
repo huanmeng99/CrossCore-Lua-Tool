@@ -1,7 +1,7 @@
 using System.Net.Http;
 using System.Threading.Tasks;
 
-public class VerMgr
+public class WWWMgr
 {
     public async Task<long> GetFileSizeAsync(string url)
     {
