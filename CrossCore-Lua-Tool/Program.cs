@@ -64,9 +64,9 @@ namespace CrossCore
         // Method to determine if VerMgr should be used
         private static bool ShouldUseVerMgr()
         {
-            // Your logic to determine if VerMgr should be used goes here
-            // For example, you could check if VerBytes option is true
-            return true; // Example: always use VerMgr for demonstration purposes
+            // Your logic to determine if VerMgr should be used based on VerBytes option
+            // For demonstration purposes, always return true here
+            return true;
         }
     }
 }
