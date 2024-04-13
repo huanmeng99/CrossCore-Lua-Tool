@@ -1,4 +1,4 @@
-namespace CrossCore.Utils
+namespace VerMgrNamespace
 {
     public class VerMgr
     {
