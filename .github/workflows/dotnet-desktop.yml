@@ -32,4 +32,4 @@ jobs:
         with:
           name: net8.0
           path: |
-            ./CrossCore-Lua-Tool_build
+            ./Assembly-CSharp_build
