@@ -19,6 +19,9 @@ namespace CrossCore
         [Option("nofix", Default = false, HelpText = "Do not fix the file.")]
         public bool NoFix { get; set; }
         
+        [Option("ver-bytes", Default = false, HelpText = "Read version data from file.")]
+        public bool VerBytes { get; set; }
+        
         [Option('h', "help", Default = false, HelpText = "Show help.")]
         public bool Help { get; set; }
     }
@@ -37,6 +40,11 @@ namespace CrossCore
                     else if (o.Decrypt)
                     {
                         LuaScripts.GenDecryptABData(o.InFile, o.OutFile);
+                    }
+                    else if (o.VerBytes)
+                    {
+                        VerMgr verMgr = new VerMgr();
+                        verMgr.LoadVerInfo(o.InFile, o.OutFile);
                     }
                     else if (o.Help)
                     {
