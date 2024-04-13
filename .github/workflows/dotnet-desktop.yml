@@ -25,7 +25,7 @@ jobs:
         run: dotnet build --configuration Release
 
       - name: Publish Project
-        run: dotnet publish ./Assembly-CSharp/Assembly-CSharp.csproj -c Release -o Assembly-CSharp_build --exclude vermgr
+        run: dotnet publish ./Assembly-CSharp/Assembly-CSharp.csproj -c Release -o Assembly-CSharp_build
 
       - name: Upload build artifacts
         uses: actions/upload-artifact@v3
