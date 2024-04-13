@@ -1,6 +1,4 @@
-﻿using CommandLine;
-using CrossCore;
-
+using CommandLine;
 
 namespace CrossCore
 {
