@@ -1,4 +1,5 @@
 using CommandLine;
+using VerMgrNamespace; // 添加对 VerMgr 类所在命名空间的引用
 
 namespace CrossCore
 {
@@ -43,30 +44,14 @@ namespace CrossCore
                     }
                     else if (o.VerBytes)
                     {
-                        // Check if VerMgr should be used
-                        if (ShouldUseVerMgr())
-                        {
-                            VerMgr verMgr = new VerMgr();
-                            verMgr.LoadVerInfo(o.InFile, o.OutFile);
-                        }
-                        else
-                        {
-                            Console.WriteLine("VerMgr not used.");
-                        }
+                        VerMgr verMgr = new VerMgr();
+                        verMgr.LoadVerInfo(o.InFile, o.OutFile);
                     }
                     else if (o.Help)
                     {
                         Console.WriteLine("Help");
                     }
                 });
-        }
-        
-        // Method to determine if VerMgr should be used
-        private static bool ShouldUseVerMgr()
-        {
-            // Your logic to determine if VerMgr should be used based on VerBytes option
-            // For demonstration purposes, always return true here
-            return true;
         }
     }
 }
