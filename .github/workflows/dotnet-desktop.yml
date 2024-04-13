@@ -30,6 +30,6 @@ jobs:
       - name: Upload build artifacts
         uses: actions/upload-artifact@v3
         with:
-          name: net8.0
+          name: n
           path: |
             ./Assembly-CSharp_build
