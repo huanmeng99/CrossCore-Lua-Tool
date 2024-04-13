@@ -2,7 +2,7 @@ name: Build and Package Project
 
 on:
   push:
-    branches: 
+    branches:
       - master
 
 jobs:
@@ -11,22 +11,24 @@ jobs:
     runs-on: windows-latest
 
     steps:
-    - name: Checkout Repository
-      uses: actions/checkout@v2
-      
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v1
-      with:
-        dotnet-version: '8.0.x'
+      - name: Checkout Repository
+        uses: actions/checkout@v2
 
-    - name: Restore Dependencies
-      run: dotnet restore
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: '8.0.x'
 
-    - name: Build Project
-      run: dotnet build --configuration Release
+      - name: Restore Dependencies
+        run: dotnet restore
 
-    - name: Publish Artifact
-      uses: actions/upload-artifact@v2
-      with:
-        name: project-artifact
-        path: ./CrossCore-Lua-Tool/bin/Release/net8.0/publish
+      - name: Build Project
+        run: dotnet build --configuration Release
+
+      - name: Publish Artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: project-artifact
+          path: |
+            CrossCore-Lua-Tool/bin/Release/net8.0/publish
+            Assembly-CSharp/bin/Release/net8.0/publish  # Assuming the output directory for Assembly-CSharp project
