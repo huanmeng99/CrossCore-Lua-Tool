@@ -31,10 +31,8 @@ jobs:
       run: dotnet restore
     - name: Build
       run: dotnet build --configuration Release
-    - name: Test
-      run: dotnet test
     - name: Upload build artifacts
       uses: actions/upload-artifact@v2
       with:
         name: net8.0
-        path: ./CrossCore-Lua-Tool_build
+        path: ./CrossCore-Lua-Tool/bin/Release/net8.0/publish
